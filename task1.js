@@ -28,7 +28,7 @@ person.updateInfo = function(newInfo) {
     Object.defineProperty(person, 'address', {value: {}, enumerable: false, configurable: false});
 
   }catch(err) {
-    console.log(err);
+    console.error(err);
   }
   
 }
