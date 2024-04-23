@@ -5,10 +5,10 @@ const person = {
   email: "john.doe@example.com"
 }
 
-Object.keys(person).forEach( prop => {
+Object.keys(person).forEach(prop => {
   Object.defineProperty(person, prop , {
-    value: person[prop],
     writable: false,
+    configurable: false
   });
 });
 
