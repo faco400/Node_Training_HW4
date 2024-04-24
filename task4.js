@@ -1,5 +1,5 @@
 function createImmutableObject(obj) {
-  const immutableObj = Array.isArray(obj) ? [] : {} //verify if obj is array or object
+  const immutableObj = Array.isArray(obj) ? [] : {} //verify if obj is array or object and make immutable obj same type
 
   //for each property get their descriptor
   Object.keys(obj).forEach(prop => {
