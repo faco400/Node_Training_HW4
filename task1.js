@@ -8,7 +8,6 @@ const person = {
 Object.keys(person).forEach(prop => {
   Object.defineProperty(person, prop , {
     writable: false,
-    configurable: false
   });
 });
 
@@ -16,11 +15,8 @@ person.updateInfo = function(newInfo) {
   try{
     Object.keys(newInfo).forEach(key => {
       if(this.hasOwnProperty(key)) { //if prop exists
-        if(Object.getOwnPropertyDescriptor(this, key).writable === false){ //if is read-only
-          throw new Error(`Cannot update. ${key} is non writable property`);
-        } else { //otherwise add new info
-          this[key] = newInfo[key];
-        }
+        Object.defineProperty(person, key, {writable: true});
+        Object.defineProperty(person, key, {value: newInfo[key], writable: false}); 
       }
     })
 
